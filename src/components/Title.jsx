@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Title extends Component {
-  render() {
+const Title = ({ text = "texto por default" }) => {
     return (
-      <h1>Este es el componente Title.jsx</h1>
+        <h1>{text}</h1>
     )
-  }
-}
+};
+
+export default Title;

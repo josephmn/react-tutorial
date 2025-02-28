@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Title from './components/Title'
+import Button from './components/Button'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,6 +11,12 @@ function App() {
   return (
     <>
     <Title/>
+    <Title text="texto del componente 2"/>
+    <Title text="texto del componente 3"/>
+
+    <Button/>
+    <Button onClick={() => alert("Primer boton")}/>
+    <Button onClick={() => alert("Segundo boton")} text = "See more"/>
     </>
   )
 }
