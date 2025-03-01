@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.scss'
@@ -8,6 +8,11 @@ import Button from './components/Button'
 function App() {
   const [count, setCount] = useState(0);
   console.log(count);
+
+  useEffect(() => {
+    // TODO: fetch de nuestra super API
+    console.log("useEffect is working also when count is changing!!!");
+  }, [count]);
 
   return (
     <>
