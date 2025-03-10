@@ -1,31 +1,38 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Link, Outlet, Route, Routes } from 'react-router-dom'
 import './App.scss'
-import Title from './components/Title'
-import Button from './components/Button'
+import Home from './pages/Home'
+import Characters from './pages/Characters'
 
 function App() {
-  const [count, setCount] = useState(0);
-  console.log(count);
-
-  useEffect(() => {
-    // TODO: fetch de nuestra super API
-    console.log("useEffect is working also when count is changing!!!");
-  }, [count]);
-
   return (
     <>
-    {/* <Title/>
-    <Title text="texto del componente 2"/>
-    <Title text="texto del componente 3"/>
-
-    <Button/>
-    <Button onClick={() => alert("Primer boton")}/>
-    <Button onClick={() => alert("Segundo boton")} text = "See more"/> */}
-    <Button onClick={() => setCount(count+1)} text = "+1"/>
-      <Title text={`El numero es: ${count}`}/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layaut />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/characters" element={<Characters />} />
+        </Route>
+      </Routes>
+    </Router>
     </>
+  )
+}
+
+function Layaut() {
+  return (
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/characters">Characters</Link>
+          </li>
+        </ul>
+      </nav>
+      <Outlet />
+    </div>
   )
 }
 
